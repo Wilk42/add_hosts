@@ -1,0 +1,7 @@
+[node]
+
+
+[all:vars]
+ansible_connection=ssh
+ansible_ssh_user=root
+postgresrep_password='redhat'

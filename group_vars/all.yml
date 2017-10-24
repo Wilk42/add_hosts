@@ -1,0 +1,7 @@
+hosts_to_add:
+  - 192.168.142.158
+
+net_group_netgroups:
+  - fg_GIM0_infra_devops_prod_users
+  - fg_GIM0_infra_devops_prod_users2
+  - test_this3

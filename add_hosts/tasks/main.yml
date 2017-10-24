@@ -1,0 +1,5 @@
+---
+
+- name: Add host to play
+  add_host:
+    hostname: "{{ hosts_to_add }}"

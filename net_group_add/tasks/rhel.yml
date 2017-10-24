@@ -1,0 +1,11 @@
+---
+
+
+
+- name: Change the user to a netgroup in /etc/passwd
+  lineinfile:
+    path: /etc/passwd
+    line: "+@{{ item }}:x:::::"
+    state: present
+  with_items:
+    - "{{net_group_netgroups}}"
