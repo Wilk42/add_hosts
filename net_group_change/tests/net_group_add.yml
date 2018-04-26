@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: False
+  tasks:
+    - name: Add host to play
+      add_host:
+        hostname: "{{ net_group_change_hosts }}"
+        groups: just_created
+      changed_when: false
+
+- hosts: just_created
+  become: yes
+  gather_facts: False
+  tasks:
+    - import_role:
+        name: net_group_change
+
+    #- handler to email

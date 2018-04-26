@@ -1,9 +1,7 @@
 [node]
-192.168.142.158
+localhost
 
 [all:vars]
 ansible_connection=ssh
 ansible_ssh_user=root
 postgresrep_password='redhat'
-
-net_group_netgroups = fg_GIM0_infra_devops_prod_users

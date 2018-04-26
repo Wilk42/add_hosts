@@ -1,5 +1,0 @@
----
-
-- import_tasks: "rhel.yml"
-  #when: ansible_os_family == "RedHat"
-  # use if need to switch requirements depending on OS

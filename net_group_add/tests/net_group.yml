@@ -1,6 +1,0 @@
----
-- hosts: all
-  remote_user: root
-  gather_facts: False
-  roles:
-    - net_group_add

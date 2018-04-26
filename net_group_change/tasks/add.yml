@@ -1,0 +1,27 @@
+---
+- name: Check if EOF exists in /etc/passwd
+  shell: grep "+:x:::::/bin/false" /etc/passwd
+  register: eof_results
+  changed_when: false
+  failed_when: false
+  # rc = 1 when it does not exist
+  # rc = 0 when it does exist.
+
+- name: Add the netgroup in /etc/passwd with EOF
+  lineinfile:
+    path: /etc/passwd
+    line: "+@{{ item }}:x:::::"
+    insertbefore: ".:x:::::/bin/false"
+    state: present
+  with_items:
+    - "{{net_group_change_netgroups}}"
+  when: "0 == eof_results.rc"
+
+- name: Add the netgroup in /etc/passwd
+  lineinfile:
+    path: /etc/passwd
+    line: "+@{{ item }}:x:::::"
+    state: present
+  with_items:
+    - "{{net_group_change_netgroups}}"
+  when: "1 == eof_results.rc"
